@@ -1,4 +1,6 @@
+#pragma once
 #include "Utilities.h"
+#include "Emprestimo.h"
 
 class Leitor {
 	string nome;

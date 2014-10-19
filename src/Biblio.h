@@ -5,8 +5,14 @@
  *      Author: Angie
  */
 
-#ifndef SRC_BIBLIO_H_
-#define SRC_BIBLIO_H_
+#pragma once
+#include <string>
+#include <vector>
+#include <iostream>
+#include <sstream>
+#include "Leitor.h"
+#include "Funcionario.h"
+#include "Livro.h"
 #include "Emprestimo.h"
 
 class Biblioteca {
@@ -31,4 +37,3 @@ public:
 	std::string imprime();
 };
 
-#endif /* SRC_BIBLIO_H_ */

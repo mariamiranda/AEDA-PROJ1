@@ -1,12 +1,16 @@
+#pragma once
 #include "Utilities.h"
-
+#include "Livro.h"
+#include "Funcionario.h"
+#include "Leitor.h"
 
 class Emprestimo {
 	unsigned int numero;
 	Livro* livro;
-	Funcionario* funcionario;
-	Leitor* leitor;
+	Funcionario* funcionario
 	unsigned int data_entrega;
+	Leitor* leitor;
+
 public:
 	Emprestimo(unsigned int num, Livro* lv, Funcionario* fc, Leitor* lt, unsigned int dt);
 	unsigned int get_numero();

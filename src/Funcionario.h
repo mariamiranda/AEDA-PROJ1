@@ -1,5 +1,4 @@
-#ifndef Funcionario_H
-#define Funcionario_H
+#pragma once
 #include "Utilities.h"
 using namespace std;
 
@@ -17,4 +16,3 @@ public:
 	void set_numero(int numero);
 };
 
-#endif

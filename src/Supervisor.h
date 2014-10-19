@@ -1,3 +1,4 @@
+#pragma once
 #include "Funcionario.h"
 #include "Utilities.h"
 

@@ -1,10 +1,7 @@
 #include "Biblio.h"
 
-#include <string>
-#include <vector>
-#include <iostream>
-#include <sstream>
-#include "Emprestimo.h"
+
+
 using namespace std;
 
 
