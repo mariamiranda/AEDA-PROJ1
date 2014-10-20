@@ -1,5 +1,6 @@
 #pragma once
 #include "Utilities.h"
+#include <string>
 
 class Livro {
 	unsigned int numero;

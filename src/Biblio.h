@@ -1,10 +1,3 @@
-/*
- * biblio.h
- *
- *  Created on: 14 Oct 2014
- *      Author: Angie
- */
-
 #pragma once
 #include <string>
 #include <vector>
@@ -14,6 +7,8 @@
 #include "Funcionario.h"
 #include "Livro.h"
 #include "Emprestimo.h"
+
+using namespace std;
 
 class Biblioteca {
 	std::vector<Livro*> livros;
@@ -34,6 +29,15 @@ public:
 	int num_leitores();
 	int num_emprestimos();
 	void aloca_supervisor();
-	std::string imprime();
+	string imprime();
+	vector<Livro*> getLivros() const;
+	vector<Emprestimo*> getEmprestimos() const;
+	void setEmprestimos(const vector<Emprestimo*> emprestimos);
+	vector<Funcionario*> getFuncionarios() const;
+	void setFuncionarios(const vector<Funcionario*> funcionarios);
+	vector<Leitor*> getLeitores() const;
+	void setLeitores(const vector<Leitor*> leitores);
+	vector<Livro*> getLivros() const;
+	void setLivros(const vector<Livro*> livros);
 };
 

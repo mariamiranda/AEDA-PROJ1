@@ -1,9 +1,20 @@
 #include "Livro.h"
+using namespace std;
 
 //constructor de Livro
-Livro::Livro(unsigned int num, string tit, vector<string> aut, unsigned int isbn, string cot, unsigned int np, unsigned int ed, bool ept, unsigned int di):
-numero{num}, titulo{tit}, autores{aut}, ISBN{isbn}, cota{cot}, num_paginas{np}, edicao{ed},
-emprestado{ept}, dias_indisponivel{di} {}
+Livro::Livro(unsigned int num, string tit, vector<string> aut, unsigned int isbn, string cot, unsigned int np, unsigned int ed,bool ept, unsigned int di){
+
+	numero=num;
+	titulo=tit;
+	autores=aut;
+	ISBN=isbn;
+	cota=cot;
+	num_paginas=np;
+	edicao=ed;
+	emprestado=ept;
+	dias_indisponivel=di;
+
+}
 
 
 //obter numero de livro

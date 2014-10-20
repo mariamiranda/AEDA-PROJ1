@@ -30,7 +30,7 @@ void Biblioteca::adiciona_leitor(Leitor* lt){
 
 // remover Livro da Biblioteca
 bool Biblioteca::remove_livro(Livro* lv){
-	vector<Livro*> livros_manter{};
+	vector<Livro*> livros_manter;
 	long num_liv=lv->get_numero();
 	unsigned int i{0};
 	bool encontrado{false};
@@ -127,7 +127,7 @@ void Biblioteca::adiciona_emprestimo(Emprestimo* ep){
 		if (ep_lt.size()<3){
 			lv->set_emprestado(true);
 			lv->set_dias_indisponivel(7);
-			lt->adiciona_emp_leit(ep);
+			lt->adiciona_emp_leit(ep->get_numero());
 			emprestimos.push_back(ep);
 		}
 		else {
@@ -159,11 +159,45 @@ bool Biblioteca::remove_emprestimo(Emprestimo* ep){
 	if (encontrado) {
 		lv->set_emprestado(false);
 		lv->set_dias_indisponivel(0);
-		lt->remove_emp_leit(ep);
+		lt->remove_emp_leit(ep->get_numero());
 		emprestimos=emprestimos_manter;
 		return true;
 	}
 	return false;
+}
+
+
+
+vector<Emprestimo*> Biblioteca::getEmprestimos() const {
+	return emprestimos;
+}
+
+void Biblioteca::setEmprestimos(const vector<Emprestimo*> emprestimos) {
+	this->emprestimos = emprestimos;
+}
+
+vector<Funcionario*>Biblioteca::getFuncionarios() const {
+	return funcionarios;
+}
+
+void Biblioteca::setFuncionarios(const vector<Funcionario*> funcionarios) {
+	this->funcionarios = funcionarios;
+}
+
+vector<Leitor*> Biblioteca::getLeitores() const {
+	return leitores;
+}
+
+void Biblioteca::setLeitores(const vector<Leitor*> leitores) {
+	this->leitores = leitores;
+}
+
+vector<Livro*> Biblioteca::getLivros() const {
+	return livros;
+}
+
+void Biblioteca::setLivros(const vector<Livro*> livros) {
+	this->livros = livros;
 }
 
 
