@@ -1,36 +1,39 @@
-#pragma once
-#include "Utilities.h"
-#include <string>
+
+#ifndef SRC_LIVRO_H_
+#define SRC_LIVRO_H_
 
 class Livro {
-	unsigned int numero;
-	string titulo;
-	vector<string> autores;
-	unsigned int ISBN;
-	string cota;
-	unsigned int num_paginas;
-	unsigned int edicao;
+	long ID;
+	std::string titulo;
+	std::vector<std::string> autores;
+	long ISBN;
+	std::string cota;
+	int num_paginas;
+	int edicao;
 	bool emprestado;
-	unsigned int dias_indisponivel;
+	int dias_indisponivel;
 public:
-	Livro(unsigned int num, string tit, vector<string> aut, unsigned int isbn, string cot, unsigned int np, unsigned int ed,bool ept, unsigned int di);
-	string imprime();
-	unsigned int get_numero();
-	void set_numero(unsigned int num);
-	string get_titulo();
-	void set_titulo(string tit);
-	vector<string> get_autores();
-	void set_autores(vector<string> aut);
-	unsigned int get_ISBN();
-	void set_ISBN(unsigned int isbn);
-	string get_cota();
-	void set_cota(string cot);
-	unsigned int get_num_paginas();
-	void set_num_paginas(unsigned int np);
-	unsigned int get_edicao();
-	void set_edicao(unsigned int ed);
+	Livro(long id, std::string tit, std::vector<std::string> aut, long isbn, std::string cot, int np, int ed,
+			bool ept, int di);
+	std::string imprime();
+	long get_ID();
+	void set_ID(long id);
+	std::string get_titulo();
+	void set_titulo(std::string tit);
+	std::vector<std::string> get_autores();
+	void set_autores(std::vector<std::string> aut);
+	long get_ISBN();
+	void set_ISBN(long isbn);
+	std::string get_cota();
+	void set_cota(std::string cot);
+	int get_num_paginas();
+	void set_num_paginas(int np);
+	int get_edicao();
+	void set_edicao(int ed);
 	bool get_emprestado();
 	void set_emprestado(bool ept);
-	unsigned int get_dias_indisponivel();
-	void set_dias_indisponivel(unsigned int di);
+	int get_dias_indisponivel();
+	void set_dias_indisponivel(int di);
 };
+
+#endif /* SRC_LIVRO_H_ */

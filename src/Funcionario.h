@@ -1,34 +1,17 @@
-#pragma once
-#include "Utilities.h"
-using namespace std;
+
+#ifndef SRC_FUNCIONARIO_H_
+#define SRC_FUNCIONARIO_H_
 
 class Funcionario {
-private:
-	string nome;
-	unsigned int numero;
+	std::string nome;
+	long ID;
 public:
-	Funcionario();
-	Funcionario(string nome, int numero);
-	string imprime();
-	string get_nome();
-	void set_nome(string nome);
-	unsigned int get_numero();
-	void set_numero(int numero);
-
-	const string& getNome() const {
-		return nome;
-	}
-
-	void setNome(const string& nome) {
-		this->nome = nome;
-	}
-
-	unsigned int getNumero() const {
-		return numero;
-	}
-
-	void setNumero(unsigned int numero) {
-		this->numero = numero;
-	}
+	Funcionario(std::string nom, long id);
+	std::string imprime();
+	const std::string get_nome();
+	void set_nome(std::string nom);
+	const long get_ID();
+	void set_ID(long id);
 };
 
+#endif /* SRC_FUNCIONARIO_H_ */

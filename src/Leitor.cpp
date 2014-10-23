@@ -1,26 +1,35 @@
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <sstream>
+
 #include "Leitor.h"
 
-//contrutor de Leitor
-Leitor::Leitor(string nom, unsigned int num, unsigned int tel, string eml, vector<unsigned int> ep_lt):
-nome{nom}, numero{num}, telefone{tel}, email{eml}, emprestimos_leitor{ep_lt} {}
+using namespace std;
 
-//obter o numero de Leitor
-unsigned int Leitor::get_numero(){
-	return numero;
+// construtor Leitor
+Leitor::Leitor(string nom, long id, long tel, string eml, vector<Emprestimo*> ep_lt):
+		nome{nom}, ID{id}, telefone{tel}, email{eml}, emprestimos_leitor{ep_lt} {}
+
+// obter ID de Leitor
+long Leitor::get_ID(){
+	return ID;
 }
 
-//adiciona emprestimo a leitor
-void Leitor::adiciona_emp_leit(unsigned int ep){
+// adicionar Emprestimo a Leitor
+void Leitor::adiciona_emp_leit(Emprestimo* ep){
 	emprestimos_leitor.push_back(ep);
 }
 
-//remove o emprestimo ep do vector emprestimos_leitor
-void Leitor::remove_emp_leit(unsigned int ep){
-	vector<unsigned int> emprestimos_manter;
-	unsigned int i=0;
+// remover Emprestimo de Leitor
+void Leitor::remove_emp_leit(Emprestimo* ep){
+	vector<Emprestimo*> emprestimos_manter{};
+	long id_emp=ep->get_ID();
+	unsigned int i{0};
 	bool encontrado{false};
 	while (i<emprestimos_leitor.size()){
-		if (emprestimos_leitor[i] == ep){
+		if (emprestimos_leitor[i]->get_ID()==id_emp){
 			encontrado=true;
 		}
 		else{
@@ -33,7 +42,8 @@ void Leitor::remove_emp_leit(unsigned int ep){
 	}
 }
 
-//retorna o vector de emprestimos de leitos
-vector<unsigned int> Leitor::get_emp_leit(){
+// obter Emprestimos de Leitor
+vector<Emprestimo*> Leitor::get_emp_leit(){
 	return emprestimos_leitor;
 }
+
