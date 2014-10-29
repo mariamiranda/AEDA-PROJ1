@@ -22,6 +22,11 @@ void Supervisor::set_func_sup(vector<Funcionario*> func_sup){
 	funcionarios_sup=func_sup;
 }
 
+// adicionar funcionario supervisionado
+void Supervisor::adiciona_func_sup(Funcionario* fc){
+	funcionarios_sup.push_back(fc);
+}
+
 // imprimir Supervisor
 string Supervisor::imprime(){
 	stringstream out{};

@@ -11,36 +11,44 @@
 
 using namespace std;
 
-vector<Emprestimo*> Biblioteca::get_emprestimos() const {
+vector<Emprestimo*> Biblioteca::get_emprestimos() {
 	return emprestimos;
 }
 
-void Biblioteca::set_emprestimos(const vector<Emprestimo*> emprestimos) {
-	this->emprestimos = emprestimos;
+void Biblioteca::set_emprestimos(vector<Emprestimo*> emp) {
+	emprestimos = emp;
 }
 
-vector<Funcionario*>Biblioteca::get_funcionarios() const {
+vector<Funcionario*>Biblioteca::get_funcionarios() {
 	return funcionarios;
 }
 
-void Biblioteca::set_funcionarios(const vector<Funcionario*> funcionarios) {
-	this->funcionarios = funcionarios;
+void Biblioteca::set_funcionarios(vector<Funcionario*> func) {
+	funcionarios = func;
 }
 
-vector<Leitor*> Biblioteca::get_leitores() const {
+vector<Supervisor*>Biblioteca::get_supervisores() {
+	return supervisores;
+}
+
+void Biblioteca::set_supervisores(vector<Supervisor*> sup) {
+	supervisores = sup;
+}
+
+vector<Leitor*> Biblioteca::get_leitores() {
 	return leitores;
 }
 
-void Biblioteca::set_leitores(const vector<Leitor*> leitores) {
-	this->leitores = leitores;
+void Biblioteca::set_leitores(vector<Leitor*> leit) {
+	leitores = leit;
 }
 
-vector<Livro*> Biblioteca::get_livros() const {
+vector<Livro*> Biblioteca::get_livros() {
 	return livros;
 }
 
-void Biblioteca::set_livros(const vector<Livro*> livros) {
-	this->livros = livros;
+void Biblioteca::set_livros(vector<Livro*> livr) {
+	livros = livr;
 }
 
 // adicionar Livro a Biblioteca
@@ -49,7 +57,7 @@ void Biblioteca::adiciona_livro(Livro* lv){
 }
 
 // adicionar Funcionario a Biblioteca
-void Biblioteca::adciona_funcionario(Funcionario* fc){
+void Biblioteca::adiciona_funcionario(Funcionario* fc){
 	funcionarios.push_back(fc);
 }
 
@@ -131,6 +139,11 @@ int Biblioteca::num_funcionarios(){
 	return funcionarios.size();
 }
 
+// numero de funcionarios na Biblioteca
+int Biblioteca::num_supervisores(){
+	return supervisores.size();
+}
+
 // numero de leitores na Biblioteca
 int Biblioteca::num_leitores(){
 	return leitores.size();
@@ -206,6 +219,7 @@ vector<Emprestimo*> Biblioteca::get_emprestimos_atrasados(){
 		if ((*it)->get_atraso()>0){
 			atrasados.push_back(*it);
 		}
+		it++;
 	}
 	return atrasados;
 }
@@ -220,15 +234,17 @@ void Biblioteca::distribui_funcionarios(){
 	unsigned long num_sup{supervisores.size()};
 	while (it!=supervisores.end()){
 		(*it)->set_func_sup(func_sup);
+		it++;
 	}
 	unsigned int i{0};
 	while (i<funcionarios.size()){
-		(supervisores[i%num_sup]->get_func_sup()).push_back(funcionarios[i]);
+		(supervisores[i%num_sup]->adiciona_func_sup(funcionarios[i]));
+		i++;
 	}
 }
 
 // promover funcionario a supervisor
-bool Biblioteca::promove_funcionorario_supervisor(long id){
+bool Biblioteca::promove_funcionario_supervisor(long id){
 	vector<Funcionario*> funcionarios_restantes{};
 	vector<Funcionario*>::const_iterator it=funcionarios.begin();
 	Funcionario* fc{};
@@ -241,12 +257,14 @@ bool Biblioteca::promove_funcionorario_supervisor(long id){
 		else{
 			funcionarios_restantes.push_back(*it);
 		}
+		it++;
 	}
 	if (existe){
 		vector<Funcionario*> func_sup{};
 		string nome{fc->get_nome()};
 		Supervisor* sp=new Supervisor{id, nome, func_sup};
 		supervisores.push_back(sp);
+		funcionarios=funcionarios_restantes;
 		distribui_funcionarios();
 	}
 	return existe;
@@ -266,6 +284,7 @@ bool Biblioteca::remove_supervisor(long id){
 		else{
 			supervisores_restantes.push_back(*it);
 		}
+		it++;
 	}
 	if (existe){
 		supervisores=supervisores_restantes;
@@ -288,6 +307,7 @@ bool Biblioteca::despromove_supervisor_funcionorario(long id){
 		else{
 			supervisores_restantes.push_back(*it);
 		}
+		it++;
 	}
 	if (existe){
 		supervisores=supervisores_restantes;

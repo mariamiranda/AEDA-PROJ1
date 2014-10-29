@@ -19,7 +19,7 @@ class Biblioteca {
 	std::vector<Emprestimo*> emprestimos;
 public:
 	void adiciona_livro(Livro* lv1);
-	void adciona_funcionario(Funcionario* fc);
+	void adiciona_funcionario(Funcionario* fc);
 	void adiciona_leitor(Leitor* lt);
 	void adiciona_emprestimo(Emprestimo* ep);
 	bool remove_livro(long id);
@@ -28,23 +28,26 @@ public:
 	bool remove_emprestimo(long id);
 	int num_livros();
 	int num_funcionarios();
+	int num_supervisores();
 	int num_leitores();
 	int num_emprestimos();
 	void aloca_funcionario_supervisor(); // nao implementei esta
 	void distribui_funcionarios();
-	bool promove_funcionorario_supervisor(long ID);
+	bool promove_funcionario_supervisor(long ID);
 	bool remove_supervisor(long ID);
 	bool despromove_supervisor_funcionorario(long id);
 	std::string imprime();
 	std::vector<Emprestimo*> get_emprestimos_atrasados();
-	std::vector<Livro*> get_livros() const;
-	std::vector<Emprestimo*> get_emprestimos() const;
-	void set_emprestimos(const std::vector<Emprestimo*> emprestimos);
-	std::vector<Funcionario*> get_funcionarios() const;
-	void set_funcionarios(const std::vector<Funcionario*> funcionarios);
-	std::vector<Leitor*> get_leitores() const;
-	void set_leitores(const std::vector<Leitor*> leitores);
-	void set_livros(const std::vector<Livro*> livros);
+	std::vector<Livro*> get_livros();
+	std::vector<Emprestimo*> get_emprestimos();
+	void set_emprestimos(std::vector<Emprestimo*> emp);
+	std::vector<Funcionario*> get_funcionarios();
+	void set_funcionarios(std::vector<Funcionario*> func);
+	std::vector<Supervisor*> get_supervisores();
+	void set_supervisores(std::vector<Supervisor*> sup);
+	std::vector<Leitor*> get_leitores();
+	void set_leitores(std::vector<Leitor*> leit);
+	void set_livros(std::vector<Livro*> livr);
 };
 
 #endif /* SRC_BIBLIOTECA_H_ */
