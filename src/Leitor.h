@@ -25,6 +25,7 @@ public:
 	void adiciona_emp_leit(Emprestimo* ep);
 	void remove_emp_leit(Emprestimo* ep);
 	std::vector<Emprestimo*> get_emp_leit();
+	void escreve();
 };
 
 #endif /* SRC_LEITOR_H_ */

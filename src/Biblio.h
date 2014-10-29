@@ -26,12 +26,6 @@ public:
 	bool remove_funcionario(long id);
 	bool remove_leitor(long id);
 	bool remove_emprestimo(long id);
-	int num_livros();
-	int num_funcionarios();
-	int num_supervisores();
-	int num_leitores();
-	int num_emprestimos();
-	void aloca_funcionario_supervisor(); // nao implementei esta
 	void distribui_funcionarios();
 	bool promove_funcionario_supervisor(long ID);
 	bool remove_supervisor(long ID);
@@ -48,6 +42,12 @@ public:
 	std::vector<Leitor*> get_leitores();
 	void set_leitores(std::vector<Leitor*> leit);
 	void set_livros(std::vector<Livro*> livr);
+	void escreve_livros();
+	void escreve_funcionarios();
+	void escreve_supervisores();
+	void escreve_leitores();
+	void escreve_emprestimos();
+	void escreve();
 };
 
 #endif /* SRC_BIBLIOTECA_H_ */

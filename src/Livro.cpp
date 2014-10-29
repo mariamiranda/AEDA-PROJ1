@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 #include "Livro.h"
 
@@ -79,6 +80,28 @@ string Livro::imprime(){
 			<< "Emprestado: " << emprestado << endl
 			<< "Dias Indisponibilidade: " << dias_indisponivel << endl;
 	return out.str();
+}
+
+// escrever Livro
+void Livro::escreve(){
+	stringstream out{};
+	out << get_ID() << endl
+			<< titulo << endl;
+	for (vector<string>::const_iterator it=autores.begin(); it!=autores.end(); it++){
+		out << *it << "; ";
+	}
+	out << endl << ISBN << endl
+			<< cota << endl
+			<< num_paginas << endl
+			<< edicao << endl
+			<< emprestado << endl
+			<< dias_indisponivel << endl;
+	ofstream myfile ("Livro.txt",ios::app);
+	if (myfile.is_open()){
+		myfile << out.str();
+		myfile.close();
+	}
+	else cout << "Unable to open file";
 }
 
 

@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 #include "Supervisor.h"
 
@@ -40,4 +41,19 @@ string Supervisor::imprime(){
 	return out.str();
 }
 
-
+// escrever Supervisor
+void Supervisor::escreve(){
+	stringstream out{};
+	out << get_ID() << endl
+			<< get_nome() << endl;
+	for (vector<Funcionario*>::const_iterator it=funcionarios_sup.begin(); it!=funcionarios_sup.end(); it++){
+		out << (*it)->get_ID() << "; ";
+	}
+	out << endl;
+	ofstream myfile ("Supervisor.txt",ios::app);
+	if (myfile.is_open()){
+		myfile << out.str();
+		myfile.close();
+	}
+	else cout << "Unable to open file";
+}

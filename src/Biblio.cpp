@@ -6,6 +6,7 @@
 #include <ctime>
 #include <cmath>
 #include <algorithm>
+#include <fstream>
 
 #include "Biblio.h"
 
@@ -127,31 +128,6 @@ bool Biblioteca::remove_leitor(long id){
 		return true;
 	}
 	return false;
-}
-
-// numero de livros na Biblioteca
-int Biblioteca::num_livros(){
-	return livros.size();
-}
-
-// numero de funcionarios na Biblioteca
-int Biblioteca::num_funcionarios(){
-	return funcionarios.size();
-}
-
-// numero de funcionarios na Biblioteca
-int Biblioteca::num_supervisores(){
-	return supervisores.size();
-}
-
-// numero de leitores na Biblioteca
-int Biblioteca::num_leitores(){
-	return leitores.size();
-}
-
-// numero de emprestimos na Biblioteca
-int Biblioteca::num_emprestimos(){
-	return emprestimos.size();
 }
 
 // adicionar Emprestimo a Biblioteca
@@ -341,4 +317,63 @@ string Biblioteca::imprime(){
 		out << (*it)->imprime();
 	}
 	return out.str();
+}
+
+// escrever livros de Biblioteca
+void Biblioteca::escreve_livros(){
+	ofstream myfile ("Livro.txt");
+	myfile << "";
+	myfile.close();
+	for (vector<Livro*>::const_iterator it=livros.begin(); it!=livros.end(); it++){
+		(*it)->escreve();
+	}
+}
+
+// escrever funcionarios de Biblioteca
+void Biblioteca::escreve_funcionarios(){
+	ofstream myfile ("Funcionario.txt");
+	myfile << "";
+	myfile.close();
+	for (vector<Funcionario*>::const_iterator it=funcionarios.begin(); it!=funcionarios.end(); it++){
+		(*it)->escreve();
+	}
+}
+
+// escrever supervisores de Biblioteca
+void Biblioteca::escreve_supervisores(){
+	ofstream myfile ("Supervisor.txt");
+	myfile << "";
+	myfile.close();
+	for (vector<Supervisor*>::const_iterator it=supervisores.begin(); it!=supervisores.end(); it++){
+		(*it)->escreve();
+	}
+}
+
+// escrever leitor de Biblioteca
+void Biblioteca::escreve_leitores(){
+	ofstream myfile ("Leitor.txt");
+	myfile << "";
+	myfile.close();
+	for (vector<Leitor*>::const_iterator it=leitores.begin(); it!=leitores.end(); it++){
+		(*it)->escreve();
+	}
+}
+
+// escrever emprestimos de Biblioteca
+void Biblioteca::escreve_emprestimos(){
+	ofstream myfile ("Emprestimo.txt");
+	myfile << "";
+	myfile.close();
+	for (vector<Emprestimo*>::const_iterator it=emprestimos.begin(); it!=emprestimos.end(); it++){
+		(*it)->escreve();
+	}
+}
+
+// escrever todos os ficheiros de Biblioteca
+void Biblioteca::escreve(){
+	escreve_livros();
+	escreve_funcionarios();
+	escreve_supervisores();
+	escreve_leitores();
+	escreve_emprestimos();
 }

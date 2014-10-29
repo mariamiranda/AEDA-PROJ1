@@ -35,6 +35,7 @@ public:
 	void set_emprestado(bool ept);
 	int get_dias_indisponivel();
 	void set_dias_indisponivel(int di);
+	void escreve();
 };
 
 #endif /* SRC_LIVRO_H_ */

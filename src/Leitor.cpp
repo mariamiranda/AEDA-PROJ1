@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 #include "Leitor.h"
 
@@ -53,3 +54,19 @@ string Leitor::imprime(){
 	return out.str();
 }
 
+// escrever Leitor
+void Leitor::escreve(){
+	stringstream out{};
+	out << get_ID() << endl
+			<< nome << endl;
+	for (vector<Emprestimo*>::const_iterator it=emprestimos_leitor.begin(); it!=emprestimos_leitor.end(); it++){
+		out << (*it)->get_ID() << "; ";
+	}
+	out << endl;
+	ofstream myfile ("Leitor.txt",ios::app);
+	if (myfile.is_open()){
+		myfile << out.str();
+		myfile.close();
+	}
+	else cout << "Unable to open file";
+}

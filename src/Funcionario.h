@@ -14,6 +14,7 @@ public:
 	virtual std::string imprime();
 	std::string get_nome();
 	void set_nome(std::string nom);
+	void escreve();
 };
 
 #endif /* SRC_FUNCIONARIO_H_ */

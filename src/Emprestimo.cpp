@@ -6,6 +6,7 @@
 #include <ctime>
 #include <cmath>
 #include <algorithm>
+#include <fstream>
 
 #include "Emprestimo.h"
 
@@ -54,4 +55,19 @@ string Emprestimo::imprime(){
 			<< "ID Funcionario: " << funcionario->get_ID() << endl
 			<<"Data: " << data << endl;
 	return out.str();
+}
+
+// escrever Livro
+void Emprestimo::escreve(){
+	stringstream out{};
+	out << get_ID() << endl
+	<< livro->get_ID() << endl
+	<< funcionario->get_ID() << endl
+	<< data << endl;
+	ofstream myfile ("Emprestimo.txt",ios::app);
+	if (myfile.is_open()){
+		myfile << out.str();
+		myfile.close();
+	}
+	else cout << "Unable to open file";
 }
