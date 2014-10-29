@@ -28,9 +28,39 @@ bool Livro::get_emprestado(){
 	return emprestado;
 }
 
-// obter emprestado de Livro
+// obter indisponibilidade de Livro
 int Livro::get_dias_indisponivel(){
 	return dias_indisponivel;
+}
+
+// obter titulo de Livro
+string Livro::get_titulo(){
+	return titulo;
+}
+
+// obter edicao de Livro
+int Livro::get_edicao(){
+	return edicao;
+}
+
+// obter autores de Livro
+vector<string> Livro::get_autores(){
+	return autores;
+}
+
+// obter numero de paginas de Livro
+int Livro::get_num_paginas(){
+	return num_paginas;
+}
+
+// obter ISBN de paginas de Livro
+long Livro::get_ISBN(){
+	return ISBN;
+}
+
+// obter cota de Livro
+string Livro::get_cota(){
+	return cota;
 }
 
 // imprimir Livro
@@ -45,9 +75,9 @@ string Livro::imprime(){
 	out << endl << "ISBN: " << ISBN << endl
 			<< "Cota: " << cota << endl
 			<< "Num. Paginas: " << num_paginas << endl
-			<< "Edicao" << edicao << endl
+			<< "Edicao: " << edicao << endl
 			<< "Emprestado: " << emprestado << endl
-			<< "Dias indisponibilidade: " << dias_indisponivel << endl;
+			<< "Dias Indisponibilidade: " << dias_indisponivel << endl;
 	return out.str();
 }
 
