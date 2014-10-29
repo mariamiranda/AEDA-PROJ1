@@ -9,13 +9,8 @@
 using namespace std;
 
 // construtor Leitor
-Leitor::Leitor(string nom, long id, long tel, string eml, vector<Emprestimo*> ep_lt):
-		nome{nom}, ID{id}, telefone{tel}, email{eml}, emprestimos_leitor{ep_lt} {}
-
-// obter ID de Leitor
-long Leitor::get_ID(){
-	return ID;
-}
+Leitor::Leitor(long id, string nom, long tel, string eml, vector<Emprestimo*> ep_lt):
+		 tem_id{id}, nome{nom}, telefone{tel}, email{eml}, emprestimos_leitor{ep_lt} {}
 
 // adicionar Emprestimo a Leitor
 void Leitor::adiciona_emp_leit(Emprestimo* ep){

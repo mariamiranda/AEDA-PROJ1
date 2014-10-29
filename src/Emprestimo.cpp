@@ -12,13 +12,8 @@
 using namespace std;
 
 // construtor Emprestimo
-Emprestimo::Emprestimo(long id, Livro* lv, Funcionario* fc, Leitor* lt):
-		ID{id}, livro{lv}, funcionario{fc}, leitor{lt}, data{std::time(NULL)}{}
-
-// obter ID de Emprestimo
-long Emprestimo::get_ID(){
-	return ID;
-}
+Emprestimo::Emprestimo(long id, Livro* lv, Funcionario* fc, Leitor* lt): tem_id{id},
+		livro{lv}, funcionario{fc}, leitor{lt}, data{std::time(NULL)}{}
 
 // obter Livro de Emprestimo
 Livro* Emprestimo::get_livro(){

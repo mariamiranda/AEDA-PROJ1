@@ -9,8 +9,8 @@
 using namespace std;
 
 // construtor Supervisor
-Supervisor::Supervisor(string nom, long id, vector<Funcionario*> func_sup):
-		Funcionario{nom,id}, funcionarios_sup{func_sup} {}
+Supervisor::Supervisor(long id, string nom, vector<Funcionario*> func_sup):
+		Funcionario{id, nom}, funcionarios_sup{func_sup} {}
 
 // obter funcionarios supervisonados
 vector<Funcionario*> Supervisor::get_func_sup(){

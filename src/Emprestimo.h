@@ -5,21 +5,20 @@
 #include "Livro.h"
 #include "Funcionario.h"
 #include "Leitor.h"
+#include "tem_id.h"
 
 class Livro;
 class Funcionario;
 class Leitor;
+class tem_id;
 
-class Emprestimo {
-	long ID;
+class Emprestimo: public tem_id{
 	Livro* livro;
 	Funcionario* funcionario;
 	Leitor* leitor;
 	std::time_t data; // data em que e feito o emprestimo
 public:
 	Emprestimo(long id, Livro* lv, Funcionario* fc, Leitor* lt);
-	long get_ID();
-	void set_ID(int id);
 	Livro* get_livro();
 	void set_livro(Livro* lv);
 	Funcionario* get_funcionario();

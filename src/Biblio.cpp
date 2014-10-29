@@ -245,7 +245,7 @@ bool Biblioteca::promove_funcionorario_supervisor(long id){
 	if (existe){
 		vector<Funcionario*> func_sup{};
 		string nome{fc->get_nome()};
-		Supervisor* sp=new Supervisor{nome,id,func_sup};
+		Supervisor* sp=new Supervisor{id, nome, func_sup};
 		supervisores.push_back(sp);
 		distribui_funcionarios();
 	}

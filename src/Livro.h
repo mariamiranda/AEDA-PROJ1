@@ -2,8 +2,11 @@
 #ifndef SRC_LIVRO_H_
 #define SRC_LIVRO_H_
 
-class Livro {
-	long ID;
+#include "tem_id.h"
+
+class tem_id;
+
+class Livro: public tem_id{
 	std::string titulo;
 	std::vector<std::string> autores;
 	long ISBN;
@@ -16,8 +19,6 @@ public:
 	Livro(long id, std::string tit, std::vector<std::string> aut, long isbn, std::string cot, int np, int ed,
 			bool ept, int di);
 	std::string imprime();
-	long get_ID();
-	void set_ID(long id);
 	std::string get_titulo();
 	void set_titulo(std::string tit);
 	std::vector<std::string> get_autores();

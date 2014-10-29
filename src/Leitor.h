@@ -3,22 +3,21 @@
 #define SRC_LEITOR_H_
 
 #include "Emprestimo.h"
+#include "tem_id.h"
 
 class Emprestimo;
+class tem_id;
 
-class Leitor {
+class Leitor: public tem_id {
 	std::string nome;
-	long ID;
 	long telefone;
 	std::string email;
 	std::vector<Emprestimo*> emprestimos_leitor;
 public:
-	Leitor(std::string nom, long id, long tel, std::string eml, std::vector<Emprestimo*> ep_lt);
+	Leitor(long id, std::string nom, long tel, std::string eml, std::vector<Emprestimo*> ep_lt);
 	std::string imprime();
 	std::string get_nome();
 	void set_nome(std::string nom);
-	long get_ID();
-	void set_ID(int id);
 	long get_telefone();
 	void set_telefone(long tel);
 	std::string get_email();
