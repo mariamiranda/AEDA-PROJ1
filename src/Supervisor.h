@@ -13,6 +13,7 @@ public:
 	void adiciona_func_sup(Funcionario* fc);
 	void set_func_sup(std::vector<Funcionario*> func_sup);
 	std::vector<Funcionario*> get_func_sup();
+	std::string imprime();
 };
 
 #endif /* SRC_SUPERVISOR_H_ */

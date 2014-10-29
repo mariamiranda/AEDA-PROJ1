@@ -297,4 +297,28 @@ bool Biblioteca::despromove_supervisor_funcionorario(long id){
 	return existe;
 }
 
-
+// imprimir Biblioteca
+string Biblioteca::imprime(){
+	stringstream out{};
+	out << "LIVROS" << endl;
+	for (vector<Livro*>::const_iterator it=livros.begin(); it!=livros.end(); it++){
+		out << (*it)->imprime();
+	}
+	out << endl << "FUNCIONARIOS" << endl;
+	for (vector<Funcionario*>::const_iterator it=funcionarios.begin(); it!=funcionarios.end(); it++){
+		out << (*it)->imprime();
+	}
+	out << endl << "SUPERVISORES" << endl;
+	for (vector<Supervisor*>::const_iterator it=supervisores.begin(); it!=supervisores.end(); it++){
+		out << (*it)->imprime();
+	}
+	out << endl << "LEITORES" << endl;
+	for (vector<Leitor*>::const_iterator it=leitores.begin(); it!=leitores.end(); it++){
+		out << (*it)->imprime();
+	}
+	out << endl << "EMPRESTIMOS" << endl;
+	for (vector<Emprestimo*>::const_iterator it=emprestimos.begin(); it!=emprestimos.end(); it++){
+		out << (*it)->imprime();
+	}
+	return out.str();
+}

@@ -10,8 +10,9 @@ class Funcionario: public tem_id {
 	std::string nome;
 public:
 	Funcionario(long id, std::string nom);
-	std::string imprime();
-	const std::string get_nome();
+	virtual ~Funcionario(){};
+	virtual std::string imprime();
+	std::string get_nome();
 	void set_nome(std::string nom);
 };
 

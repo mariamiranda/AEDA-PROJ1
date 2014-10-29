@@ -21,3 +21,18 @@ vector<Funcionario*> Supervisor::get_func_sup(){
 void Supervisor::set_func_sup(vector<Funcionario*> func_sup){
 	funcionarios_sup=func_sup;
 }
+
+// imprimir Supervisor
+string Supervisor::imprime(){
+	stringstream out{};
+	out << "ID: "<< get_ID() << endl
+			<< "Nome: " << get_nome() << endl
+			<< "ID Funcionarios: ";
+	for (vector<Funcionario*>::const_iterator it=funcionarios_sup.begin(); it!=funcionarios_sup.end(); it++){
+		out << (*it)->get_ID() << "; ";
+	}
+	out << endl;
+	return out.str();
+}
+
+

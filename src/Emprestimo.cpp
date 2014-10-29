@@ -45,3 +45,13 @@ double Emprestimo::get_multa(){
 	double divida{tempo_extra*0.25+tempo_extra_extra*0.5};
 	return divida;
 }
+
+// imprimir Emprestimo
+string Emprestimo::imprime(){
+	stringstream out{};
+	out << "ID: "<< get_ID() << endl
+			<< "ID Livro: " << livro->get_ID() << endl
+			<< "ID Funcionario: " << funcionario->get_ID() << endl
+			<<"Data: " << data << endl;
+	return out.str();
+}

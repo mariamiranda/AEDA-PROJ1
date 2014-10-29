@@ -29,6 +29,7 @@ public:
 	void set_data(std::time_t dt);
 	int get_atraso();
 	double get_multa();
+	std::string imprime();
 };
 
 #endif /* SRC_EMPRESTIMO_H_ */

@@ -42,3 +42,14 @@ vector<Emprestimo*> Leitor::get_emp_leit(){
 	return emprestimos_leitor;
 }
 
+// imprimir Leitor
+string Leitor::imprime(){
+	stringstream out{};
+	out << "ID: "<< get_ID() << endl<< "Nome: " << nome << endl << "ID Emprestimos: ";
+	for (vector<Emprestimo*>::const_iterator it=emprestimos_leitor.begin(); it!=emprestimos_leitor.end(); it++){
+		out << (*it)->get_ID() << "; ";
+	}
+	out << endl;
+	return out.str();
+}
+
